@@ -1,20 +1,19 @@
 #include <iostream>
-#include <cmath>
+#define int long long int
 using namespace std;
-int main() {
-    int n, m, ans = 0;
+int32_t main() {
+    int n, m;
+    int ans = 0;
     cin >> n >> m;
     int arr[m] = {0};
     for(int i = 0;i < m;i++)
         cin >> arr[i];
     ans = arr[0] - 1;
     for(int i = 1;i < m;i++){
-        if(arr[i] >= arr[i - 1]){
+        if(arr[i] < arr[i - 1])
+            ans += (n - arr[i - 1] + arr[i]);
+        else
             ans += arr[i] - arr[i - 1];
-        }
-        else{
-            ans += abs(n - arr[i - 1] + arr[i]);
-        }
     }
-    cout << ans << endl;
+    cout << ans;
 }
