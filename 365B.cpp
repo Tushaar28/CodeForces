@@ -18,8 +18,8 @@ int main() {
         if(arr[i] == arr[i - 1] + arr[i - 2])
             dp[i] = 1 + dp[i - 1];
         else
-            dp[i] = 0;
+            dp[i] = 1;
         ans = max(ans, dp[i]);
     }
-    cout << (n == 1? 1 : ans) << endl;
+    cout << (n == 1? 1 : ans + 1) << endl;
 }
